@@ -1,0 +1,38 @@
+[
+  {
+    "asin": "B01N5IB20Q",
+    "title": "The Hobbit",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/81t2CVWEsUL.jpg",
+    "price": 10.99
+  },
+  {
+    "asin": "B0192CTMYG",
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg",
+    "price": 12.49
+  },
+  {
+    "asin": "B00U6SFUSS",
+    "title": "Game of Thrones",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/91dSMhdIzTL.jpg",
+    "price": 14.99
+  },
+  {
+    "asin": "B003O86FMW",
+    "title": "The Name of the Wind",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/91b0C2YNSrL.jpg",
+    "price": 13.99
+  },
+  {
+    "asin": "B00X593SRM",
+    "title": "Mistborn: The Final Empire",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/81dQwQlmAXL.jpg",
+    "price": 11.99
+  },
+  {
+    "asin": "B002RI9ZY0",
+    "title": "The Way of Kings",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg",
+    "price": 15.99
+  }
+]
