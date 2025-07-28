@@ -1,39 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card } from 'react-bootstrap';
-import CommentArea from './CommentArea';
 
-class SingleBook extends Component {
-  state = {
-    selected: false,
-  };
-
-  handleToggle = () => {
-    this.setState(prevState => ({
-      selected: !prevState.selected,
-    }));
-  };
-
-  render() {
-    const { book } = this.props;
-    return (
-      <div onClick={this.handleToggle}>
-        <Card
-          className="h-100"
-          style={{
-            border: this.state.selected ? '3px solid red' : '1px solid #ddd',
-            cursor: 'pointer',
-          }}
-        >
-          <Card.Img variant="top" src={book.img} />
-          <Card.Body>
-            <Card.Title>{book.title}</Card.Title>
-            <Card.Text>${book.price}</Card.Text>
-          </Card.Body>
-        </Card>
-        {this.state.selected && <CommentArea asin={book.asin} />}
-      </div>
-    );
-  }
-}
+const SingleBook = ({ book, selectedAsin, onBookSelect }) => {
+  const isSelected = selectedAsin === book.asin;
+  return (
+    <div onClick={() => onBookSelect(book.asin)}>
+      <Card
+        className="h-100"
+        style={{
+          border: isSelected ? '3px solid red' : '1px solid #ddd',
+          cursor: 'pointer',
+        }}
+      >
+        <Card.Img variant="top" src={book.img} />
+        <Card.Body>
+          <Card.Title>{book.title}</Card.Title>
+          <Card.Text>${book.price}</Card.Text>
+        </Card.Body>
+      </Card>
+    </div>
+  );
+};
 
 export default SingleBook;

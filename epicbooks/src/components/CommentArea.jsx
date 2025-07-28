@@ -12,6 +12,7 @@ const CommentArea = ({ asin }) => {
   const [error, setError] = useState(false);
 
   const fetchComments = async () => {
+    if (!asin) return;
     setLoading(true);
     setError(false);
     try {
@@ -29,12 +30,17 @@ const CommentArea = ({ asin }) => {
   };
 
   useEffect(() => {
+    if (!asin) return;
     fetchComments();
     // eslint-disable-next-line
   }, [asin]);
 
   const handleCommentAdded = () => fetchComments();
   const handleCommentDeleted = () => fetchComments();
+
+  if (!asin) {
+    return <div>Seleziona un libro per vedere o aggiungere commenti.</div>;
+  }
 
   return (
     <div>
