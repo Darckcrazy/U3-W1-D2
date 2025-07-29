@@ -4,7 +4,7 @@ import AddComment from './AddComment';
 import Loading from './Loading';
 import Error from './Error';
 
-const AUTH_TOKEN = 'Bearer YOUR_TOKEN_HERE';
+const AUTH_TOKEN = '';
 
 const CommentArea = ({ asin }) => {
   const [comments, setComments] = useState([]);

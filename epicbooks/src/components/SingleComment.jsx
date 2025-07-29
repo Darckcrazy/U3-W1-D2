@@ -1,4 +1,4 @@
-const AUTH_TOKEN = 'Bearer YOUR_TOKEN_HERE';
+const AUTH_TOKEN = '';
 
 const SingleComment = ({ comment, onDelete }) => {
   const handleDelete = async () => {

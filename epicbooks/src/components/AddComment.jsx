@@ -2,8 +2,10 @@ import { useState } from 'react';
 const AUTH_TOKEN = 'Bearer YOUR_TOKEN_HERE';
 
 const AddComment = ({ asin, onCommentAdded }) => {
-  const [comment, setComment] = useState('');
-  const [rate, setRate] = useState(1);
+  const [formData, setFormData] = useState({
+    comment: '',
+    rate: 1
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,23 +15,39 @@ const AddComment = ({ asin, onCommentAdded }) => {
         'Content-Type': 'application/json',
         Authorization: AUTH_TOKEN,
       },
-      body: JSON.stringify({ comment, rate, elementId: asin }),
+      body: JSON.stringify({ 
+        comment: formData.comment, 
+        rate: formData.rate, 
+        elementId: asin 
+      }),
     });
-    setComment('');
-    setRate(1);
+    setFormData({ comment: '', rate: 1 });
     onCommentAdded();
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
+        name="comment"
+        value={formData.comment}
+        onChange={handleInputChange}
         placeholder="Add a comment"
         required
       />
-      <select value={rate} onChange={(e) => setRate(e.target.value)}>
+      <select 
+        name="rate" 
+        value={formData.rate} 
+        onChange={handleInputChange}
+      >
         {[1, 2, 3, 4, 5].map((n) => (
           <option key={n} value={n}>{n}</option>
         ))}
