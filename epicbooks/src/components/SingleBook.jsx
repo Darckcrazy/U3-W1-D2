@@ -4,9 +4,10 @@ import { Card } from 'react-bootstrap';
 const SingleBook = ({ book, selectedAsin, onBookSelect }) => {
   const isSelected = selectedAsin === book.asin;
   return (
-    <div onClick={() => onBookSelect(book.asin)}>
+    <div onClick={() => onBookSelect(book.asin)} data-testid="book-card">
       <Card
         className="h-100"
+        data-testid={`book-${book.asin}`}
         style={{
           border: isSelected ? '3px solid red' : '1px solid #ddd',
           cursor: 'pointer',
